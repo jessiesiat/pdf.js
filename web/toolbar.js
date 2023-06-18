@@ -91,9 +91,9 @@ class Toolbar {
         },
       },
     ];
-    if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
-      this.buttons.push({ element: options.openFile, eventName: "openfile" });
-    }
+    // if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
+    //   this.buttons.push({ element: options.openFile, eventName: "openfile" });
+    // }
     this.items = {
       numPages: options.numPages,
       pageNumber: options.pageNumber,
