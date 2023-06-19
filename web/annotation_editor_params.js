@@ -39,12 +39,12 @@ class AnnotationEditorParams {
         value,
       });
     };
-    editorFreeTextFontSize.addEventListener("input", function () {
-      dispatchEvent("FREETEXT_SIZE", this.valueAsNumber);
-    });
-    editorFreeTextColor.addEventListener("input", function () {
-      dispatchEvent("FREETEXT_COLOR", this.value);
-    });
+    // editorFreeTextFontSize.addEventListener("input", function () {
+    //   dispatchEvent("FREETEXT_SIZE", this.valueAsNumber);
+    // });
+    // editorFreeTextColor.addEventListener("input", function () {
+    //   dispatchEvent("FREETEXT_COLOR", this.value);
+    // });
     editorInkColor.addEventListener("input", function () {
       dispatchEvent("INK_COLOR", this.value);
     });
@@ -58,12 +58,12 @@ class AnnotationEditorParams {
     this.eventBus._on("annotationeditorparamschanged", evt => {
       for (const [type, value] of evt.details) {
         switch (type) {
-          case AnnotationEditorParamsType.FREETEXT_SIZE:
-            editorFreeTextFontSize.value = value;
-            break;
-          case AnnotationEditorParamsType.FREETEXT_COLOR:
-            editorFreeTextColor.value = value;
-            break;
+          // case AnnotationEditorParamsType.FREETEXT_SIZE:
+          //   editorFreeTextFontSize.value = value;
+          //   break;
+          // case AnnotationEditorParamsType.FREETEXT_COLOR:
+          //   editorFreeTextColor.value = value;
+          //   break;
           case AnnotationEditorParamsType.INK_COLOR:
             editorInkColor.value = value;
             break;

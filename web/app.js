@@ -233,10 +233,20 @@ const PDFViewerApplication = {
   _isCtrlKeyDown: false,
   _nimbusDataPromise: null,
 
+  allowPrint: true,
+  allowDownload: true,
+
   // Called once when the document is loaded.
   async initialize(appConfig) {
     this.preferences = this.externalServices.createPreferences();
     this.appConfig = appConfig;
+
+    this.allowPrint = window.allowPrint
+    this.allowDownload = window.allowDownload
+    const workerSrc = document.getElementById('pdf-worker-path')?.value;
+    if (workerSrc) {
+      AppOptions.set("workerSrc", document.getElementById('pdf-worker-path').value);
+    }
 
     if (
       typeof PDFJSDev === "undefined"
@@ -271,6 +281,7 @@ const PDFViewerApplication = {
       // Dispatch the 'localized' event on the `eventBus` once the viewer
       // has been fully initialized and translated.
       this.eventBus.dispatch("localized", { source: this });
+      console.log('localized ggg');
     });
 
     this._initializedCapability.resolve();
@@ -1876,8 +1887,12 @@ const PDFViewerApplication = {
       "switchannotationeditorparams",
       webViewerSwitchAnnotationEditorParams
     );
-    eventBus._on("print", webViewerPrint);
-    eventBus._on("download", webViewerDownload);
+    if (this.allowPrint) {
+      eventBus._on("print", webViewerPrint);
+    }
+    if (this.allowDownload) {
+      eventBus._on("download", webViewerDownload);
+    }
     eventBus._on("openinexternalapp", webViewerOpenInExternalApp);
     eventBus._on("firstpage", webViewerFirstPage);
     eventBus._on("lastpage", webViewerLastPage);
@@ -1902,7 +1917,7 @@ const PDFViewerApplication = {
 
     if (AppOptions.get("pdfBug")) {
       _boundEvents.reportPageStatsPDFBug = reportPageStatsPDFBug;
-
+      
       eventBus._on("pagerendered", _boundEvents.reportPageStatsPDFBug);
       eventBus._on("pagechanging", _boundEvents.reportPageStatsPDFBug);
     }

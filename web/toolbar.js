@@ -146,9 +146,9 @@ class Toolbar {
   #bindListeners(options) {
     const { pageNumber, scaleSelect } = this.items;
     const self = this;
-
     // The buttons within the toolbar.
     for (const { element, eventName, eventDetails } of this.buttons) {
+      if (!element) continue;
       element.addEventListener("click", evt => {
         if (eventName !== null) {
           this.eventBus.dispatch(eventName, { source: this, ...eventDetails });
@@ -159,6 +159,7 @@ class Toolbar {
     pageNumber.addEventListener("click", function () {
       this.select();
     });
+    
     pageNumber.addEventListener("change", function () {
       self.eventBus.dispatch("pagenumberchanged", {
         source: self,
@@ -219,8 +220,12 @@ class Toolbar {
       );
 
       const isDisable = mode === AnnotationEditorType.DISABLE;
-      editorFreeTextButton.disabled = isDisable;
-      editorInkButton.disabled = isDisable;
+      if (editorFreeTextButton) {
+        editorFreeTextButton.disabled = isDisable;
+      }
+      if (editorInkButton) {
+        editorInkButton.disabled = isDisable;
+      }
     };
     this.eventBus._on("annotationeditormodechanged", editorModeChanged);
 

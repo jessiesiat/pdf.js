@@ -161,7 +161,7 @@ See https://github.com/adobe-type-tools/cmap-resources
           </div>
         </div>  <!-- findbar -->
 
-        <div class="editorParamsToolbar hidden doorHangerRight" id="editorFreeTextParamsToolbar">
+        <!-- <div class="editorParamsToolbar hidden doorHangerRight" id="editorFreeTextParamsToolbar">
           <div class="editorParamsToolbarContainer">
             <div class="editorParamsSetter">
               <label for="editorFreeTextColor" class="editorParamsLabel" data-l10n-id="editor_free_text_color">Color</label>
@@ -172,7 +172,7 @@ See https://github.com/adobe-type-tools/cmap-resources
               <input type="range" id="editorFreeTextFontSize" class="editorParamsSlider" value="10" min="5" max="100" step="1" tabindex="101">
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="editorParamsToolbar hidden doorHangerRight" id="editorInkParamsToolbar">
           <div class="editorParamsToolbarContainer">
@@ -194,9 +194,9 @@ See https://github.com/adobe-type-tools/cmap-resources
         <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
           <div id="secondaryToolbarButtonContainer">
 <!--#if GENERIC-->
-            <button id="secondaryOpenFile" class="secondaryToolbarButton visibleLargeView" title="Open File" tabindex="51" data-l10n-id="open_file">
+            <!-- <button id="secondaryOpenFile" class="secondaryToolbarButton visibleLargeView" title="Open File" tabindex="51" data-l10n-id="open_file">
               <span data-l10n-id="open_file_label">Open</span>
-            </button>
+            </button> -->
 <!--#endif-->
 
             <button id="secondaryPrint" class="secondaryToolbarButton visibleMediumView" title="Print" tabindex="52" data-l10n-id="print">
@@ -314,9 +314,9 @@ See https://github.com/adobe-type-tools/cmap-resources
               </div>
               <div id="toolbarViewerRight">
 <!--#if GENERIC-->
-                <button id="openFile" class="toolbarButton hiddenLargeView" title="Open File" tabindex="31" data-l10n-id="open_file">
+                <!-- <button id="openFile" class="toolbarButton hiddenLargeView" title="Open File" tabindex="31" data-l10n-id="open_file">
                   <span data-l10n-id="open_file_label">Open</span>
-                </button>
+                </button> -->
 <!--#endif-->
 
                 <button id="print" class="toolbarButton hiddenMediumView" title="Print" tabindex="32" data-l10n-id="print">
@@ -327,7 +327,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <span data-l10n-id="save_label">Save</span>
                 </button>
 
-                <div class="verticalToolbarSeparator hiddenMediumView"></div>
+                <!-- <div class="verticalToolbarSeparator hiddenMediumView"></div>
 
                 <div id="editorModeButtons" class="splitToolbarButton toggled" role="radiogroup">
                   <button id="editorFreeText" class="toolbarButton" disabled="disabled" title="Text" role="radio" aria-checked="false" aria-controls="editorFreeTextParamsToolbar" tabindex="34" data-l10n-id="editor_free_text2">
@@ -336,7 +336,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <button id="editorInk" class="toolbarButton" disabled="disabled" title="Draw" role="radio" aria-checked="false" aria-controls="editorInkParamsToolbar" tabindex="35" data-l10n-id="editor_ink2">
                     <span data-l10n-id="editor_ink2_label">Draw</span>
                   </button>
-                </div>
+                </div> -->
 
                 <div id="editorModeSeparator" class="verticalToolbarSeparator"></div>
 
@@ -489,5 +489,17 @@ See https://github.com/adobe-type-tools/cmap-resources
 <!--#if GENERIC-->
     <input type="file" id="fileInput" class="hidden">
 <!--#endif-->
+    <input type="hidden" id="pdf_file" value="compressed.tracemonkey-pldi-09.pdf">
+    <!-- <input type="hidden" id="pdf-worker-path" value="/statics/pdfjs/build/pdf.worker.js"> -->
+    <script>
+    var allowPrint = false;
+    var allowDownload = true;
+    if (!allowPrint) {
+      document.getElementById("print")?.classList.add("hidden");
+    }
+    if (!allowDownload) {
+      document.getElementById("download")?.classList.add("hidden");
+    }
+    </script>
   </body>
 </html>
