@@ -29,6 +29,7 @@
   --toolbar-icon-opacity: 0.7;
   --doorhanger-icon-opacity: 0.9;
 
+  /* --main-color: #fff; */
   --main-color: rgba(12, 12, 13, 1);
   --body-bg-color: rgba(212, 212, 215, 1);
   --progressBar-color: rgba(10, 132, 255, 1);
@@ -41,7 +42,9 @@
 
   --sidebar-narrow-bg-color: rgba(212, 212, 215, 0.9);
   --sidebar-toolbar-bg-color: rgba(245, 246, 247, 1);
-  --toolbar-bg-color: rgba(249, 249, 250, 1);
+  --toolbar-bg-color: #dde1e9;
+  /* --toolbar-bg-color: rgba(249, 249, 250, 1); */
+  /* --toolbar-bg-color: #373e49; */
   --toolbar-border-color: rgba(184, 184, 184, 1);
   --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
   --toolbar-border-bottom: none;
@@ -53,7 +56,8 @@
   --toggled-btn-color: rgba(0, 0, 0, 1);
   --toggled-btn-bg-color: rgba(0, 0, 0, 0.3);
   --toggled-hover-active-btn-color: rgba(0, 0, 0, 0.4);
-  --dropdown-btn-bg-color: rgb(64 84 109);
+  --dropdown-btn-bg-color: rgb(236 240 247);
+  /* --dropdown-btn-bg-color: rgb(64 84 109); */
   /* --dropdown-btn-bg-color: rgba(215, 215, 219, 1); */
   --dropdown-btn-border: none;
   --separator-color: rgba(0, 0, 0, 0.3);
@@ -64,15 +68,19 @@
   --treeitem-bg-color: rgba(0, 0, 0, 0.15);
   --treeitem-hover-color: rgba(0, 0, 0, 0.9);
   --treeitem-selected-color: rgba(0, 0, 0, 0.9);
-  --treeitem-selected-bg-color: rgb(64 84 109);
-  /* --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25); */
+  /* --treeitem-selected-bg-color: rgb(64 84 109); */
+  --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25);
   --thumbnail-hover-color: rgba(0, 0, 0, 0.1);
   --thumbnail-selected-color: rgba(0, 0, 0, 0.2);
-  --doorhanger-bg-color: rgb(64 84 109);
+  --doorhanger-bg-color: rgba(255, 255, 255, 1);
+  --doorhanger-bg-color: rgb(227 231 237);
+  /* --doorhanger-bg-color: rgb(161 179 204); */
+  /* --doorhanger-bg-color: #49505b; */
   --doorhanger-border-color: rgba(12, 12, 13, 0.2);
   --doorhanger-hover-color: rgba(12, 12, 13, 1);
   --doorhanger-hover-bg-color: rgba(237, 237, 237, 1);
-  --doorhanger-separator-color: rgba(222, 222, 222, 1);
+  /* --doorhanger-separator-color: rgba(222, 222, 222, 1); */
+  --doorhanger-separator-color: rgb(193 199 210);
   --dialog-button-border: none;
   --dialog-button-bg-color: rgba(12, 12, 13, 0.1);
   --dialog-button-hover-bg-color: rgba(12, 12, 13, 0.3);
@@ -142,13 +150,15 @@
 
     --sidebar-narrow-bg-color: rgba(42, 42, 46, 0.9);
     --sidebar-toolbar-bg-color: rgba(50, 50, 52, 1);
-    --toolbar-bg-color: rgba(56, 56, 61, 1);
+    --toolbar-bg-color: #373e49;
+    /* --toolbar-bg-color: rgba(56, 56, 61, 1); */
     --toolbar-border-color: rgba(12, 12, 13, 1);
     --button-hover-color: rgba(102, 102, 103, 1);
     --toggled-btn-color: rgba(255, 255, 255, 1);
     --toggled-btn-bg-color: rgba(0, 0, 0, 0.3);
     --toggled-hover-active-btn-color: rgba(0, 0, 0, 0.4);
-    --dropdown-btn-bg-color: rgb(64 84 109);
+    --dropdown-btn-bg-color: rgb(93 102 117);
+    /* --dropdown-btn-bg-color: rgb(64 84 109); */
     /* --dropdown-btn-bg-color: rgba(74, 74, 79, 1); */
     --separator-color: rgba(0, 0, 0, 0.3);
     --field-color: rgba(250, 250, 250, 1);
@@ -161,7 +171,8 @@
     --treeitem-selected-bg-color: rgba(255, 255, 255, 0.25);
     --thumbnail-hover-color: rgba(255, 255, 255, 0.1);
     --thumbnail-selected-color: rgba(255, 255, 255, 0.2);
-    --doorhanger-bg-color: rgb(64 84 109);
+    --doorhanger-bg-color: rgba(74, 74, 79, 1);
+    /* --doorhanger-bg-color: rgb(64 84 109); */
     --doorhanger-border-color: rgba(39, 39, 43, 1);
     --doorhanger-hover-color: rgba(249, 249, 250, 1);
     --doorhanger-hover-bg-color: rgba(93, 94, 98, 1);
@@ -364,7 +375,7 @@ body {
 
 #toolbarViewer {
   height: 32px;
-  background-color: #012e6d;
+  /* background-color: #373e49; */
 }
 
 #loadingBar {

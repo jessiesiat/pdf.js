@@ -243,9 +243,13 @@ const PDFViewerApplication = {
 
     this.allowPrint = window.allowPrint
     this.allowDownload = window.allowDownload
-    const workerSrc = document.getElementById('pdf-worker-path')?.value;
+    const workerSrc = document.getElementById("pdf-worker-path")?.value;
+    const sandboxBundleSrc = document.getElementById("pdf-sandbox-path")?.value;
     if (workerSrc) {
-      AppOptions.set("workerSrc", document.getElementById('pdf-worker-path').value);
+      AppOptions.set("workerSrc", workerSrc);
+    }
+    if (sandboxBundleSrc) {
+      AppOptions.set("sandboxBundleSrc", sandboxBundleSrc);
     }
 
     if (
@@ -281,7 +285,6 @@ const PDFViewerApplication = {
       // Dispatch the 'localized' event on the `eventBus` once the viewer
       // has been fully initialized and translated.
       this.eventBus.dispatch("localized", { source: this });
-      console.log('localized ggg');
     });
 
     this._initializedCapability.resolve();
@@ -1917,7 +1920,7 @@ const PDFViewerApplication = {
 
     if (AppOptions.get("pdfBug")) {
       _boundEvents.reportPageStatsPDFBug = reportPageStatsPDFBug;
-      
+
       eventBus._on("pagerendered", _boundEvents.reportPageStatsPDFBug);
       eventBus._on("pagechanging", _boundEvents.reportPageStatsPDFBug);
     }
