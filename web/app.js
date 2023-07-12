@@ -540,6 +540,11 @@ const PDFViewerApplication = {
       enablePermissions: AppOptions.get("enablePermissions"),
       pageColors,
     });
+    // pdfViewer.setViewerPreferences({
+    //   viewerPreferences: viewerPreferences.create({
+    //     disableFormEditing: true
+    //   })
+    // });
     this.pdfViewer = pdfViewer;
 
     pdfRenderingQueue.setViewer(pdfViewer);
@@ -1008,9 +1013,18 @@ const PDFViewerApplication = {
       this.passwordPrompt.setUpdateCallback(updateCallback, reason);
       this.passwordPrompt.open();
     };
-
+    // fake initial  progress for UX
+    let progress = 0;
+    const progressIntervalID = setInterval(() => {
+      progress += 10;
+      if (progress < 80) {
+        this.progress(progress / 100);
+      }
+    }, 800);
     loadingTask.onProgress = ({ loaded, total }) => {
+      console.log("onprogress", (loaded / total) * 100);
       this.progress(loaded / total);
+      clearInterval(progressIntervalID);
     };
 
     return loadingTask.promise.then(
